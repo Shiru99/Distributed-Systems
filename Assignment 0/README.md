@@ -22,19 +22,15 @@ $ export PATH="$PATH:$(go env GOPATH)/bin"
 
 ## Project Initialization 
 ```
-$ go mod init example.com/hello-grpc
+$ go mod init example.com
 
 $ go mod tidy
 ```
 
-<!-- ## Project 
-
-* Note : You need to change your option go_package (File: hello.proto) into option go_package = "./;hello"; The first param means relative path where the code you want to generate. The path relative to the --go_out , you set in your command.
+## Creating gRPC code using hello.proto contract
 
 ```
 $ protoc --go_out=. --go_opt=paths=source_relative \
          --go-grpc_out=. \
          --go-grpc_opt=paths=source_relative hello/hello.proto
-
-$ 
-``` -->
+```

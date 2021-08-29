@@ -1,0 +1,21 @@
+/*
+    Adding/exposing Some Functionality via gRPC server so that gRCP clients can interact with server
+    .proto file will act as contract
+*/ 
+
+syntax = "proto3";
+
+package hello;
+option go_package = "./;hello";         
+// Or "example.com/;hello";
+
+// message format for interaction between the server & the client
+message Message {
+  int32 messageCount = 1;
+  string body = 2;
+}
+  
+// SayGreetings - rpc endpoint for the client to call which accepts a Message object & returns a Message object
+service HelloService {
+  rpc SayGreetings(Message) returns (Message) {}
+}
