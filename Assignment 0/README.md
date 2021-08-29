@@ -22,21 +22,19 @@ $ export PATH="$PATH:$(go env GOPATH)/bin"
 
 ## Project Initialization 
 ```
-$ cd hello/
-
-$ go mod init example.com/m/v2
+$ go mod init example.com/hello-grpc
 
 $ go mod tidy
 ```
 
-## Project 
+<!-- ## Project 
 
-* Note : You need to change your option go_package (File: hello.proto) into option go_package = "./;hellopb"; The first param means relative path where the code you want to generate. The path relative to the --go_out , you set in your command.
+* Note : You need to change your option go_package (File: hello.proto) into option go_package = "./;hello"; The first param means relative path where the code you want to generate. The path relative to the --go_out , you set in your command.
 
 ```
 $ protoc --go_out=. --go_opt=paths=source_relative \
          --go-grpc_out=. \
-         --go-grpc_opt=paths=source_relative hellopb/hello.proto
+         --go-grpc_opt=paths=source_relative hello/hello.proto
 
 $ 
-```
+``` -->
