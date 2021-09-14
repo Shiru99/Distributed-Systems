@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package transaction;
+option go_package = "./;transaction";
+
+message TranxReq {
+    string TransactionID = 1;
+}
+
+message TranxRes {
+    string TranxOutput = 1;
+}
+
+message DepoReq {
+    string TransactionID = 1;
+    string Amount = 2;
+}
+
+message DepoRes {
+    string DepoOutput = 1;
+}
+
+service bankService {
+    rpc GetBalance(TranxReq) returns (TranxRes) {};
+    rpc DepositeAmount(DepoReq) returns (DepoRes) {};
+}
+

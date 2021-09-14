@@ -3,25 +3,24 @@ package main
 import (
 	"context"
 	"fmt"
-	"example.com/m/v2/hellopb"
+	"./hellopb"
 	"google.golang.org/grpc"
 	"log"
 	"net"
-	"time"
 )
 
 type server struct {
 
 }
 
-// Sample code to read the request and return the response back to client
+/* // Sample code to read the request and return the response back to client
 func (*server) Hello(ctx context.Context, request *hellopb.HelloRequest) (*hellopb.HelloResponse, error) {
 	name := request.Name
 	response := &hellopb.HelloResponse{
 		Greeting: "Hello " + name,
 	}
 	return response, nil
-} 
+} */
 
 func (*server) GetBalance(ctx context.Context, request *transactionpb.TransactionRequest) (*transactionpb.TransactionResponse, error) {
 	//Implement the logic to check the transaction already processed if processed add appropriate message into Response
@@ -64,7 +63,7 @@ func (*server) DepositeAmount(ctx context.Context, request *transactionpb.Transa
 func main() {
 	//Read the transaction processed from Trans_Processed.txt into TransIds
 	//Sample code to start the server, read the port number from command-line
-	address := "0.0.0.0:50051"
+	/*address := "0.0.0.0:50051"
 	lis, err := net.Listen("tcp", address)
 	if err != nil {
 		log.Fatalf("Error %v", err)
@@ -76,5 +75,5 @@ func main() {
 	hellopb.RegisterHelloServiceServer(s, &server{})
 
 	s.Serve(lis)
-	
+	*/
 }
